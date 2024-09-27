@@ -99,10 +99,13 @@ def predict():
             logging.error("Invalid input: Missing job_description or question field.")
             return jsonify({"error": "Job description and question are required."}), 400
 
-        job_description = data["job_description"]
+        # job_description = data["job_description"]
         question = data["question"]
 
         # Query the RAG pipeline
+        with open("uploads\jd\job_description.txt", "r") as jd_file:
+            job_description = jd_file.read()
+        print(job_description)
         response = query_rag(job_description=job_description, question=question)
 
         return jsonify({"answer": response}), 200
