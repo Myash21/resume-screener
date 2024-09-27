@@ -29,8 +29,8 @@ const LLMQueryComponent = () => {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold text-center mb-6">
+    <div className="max-w-lg mx-auto mt-4 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg absolute top-10 right-5">
+      <h2 className="text-2xl font-bold text-center mb-6 text-blue-700">
         Ask LLM about Candidates
       </h2>
       <form onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ const LLMQueryComponent = () => {
 
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors"
+          className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors"
         >
           Submit
         </button>

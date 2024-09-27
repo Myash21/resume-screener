@@ -53,41 +53,41 @@ const ResumeUploader = () => {
     };
 
     return (
-        <div className="max-w-3xl mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg border border-blue-200">
-            <h1 className="text-4xl font-bold mb-6 text-center text-blue-600">Upload Resumes and Job Description</h1>
+        <div className="max-w-lg mx-0 mt-10 p-8 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg border border-blue-300">
+            <h1 className="text-4xl font-bold mb-6 text-center text-blue-700">Upload Resumes and Job Description</h1>
             <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
-                    <label className="block text-lg font-semibold text-blue-700 mb-3">Select Folder (PDFs only):</label>
+                    <label className="block text-lg font-semibold text-blue-800 mb-3">Select Folder (PDFs only):</label>
                     <input 
                         type="file"
                         webkitdirectory="true"
                         directory="true"
                         onChange={handleFolderChange}
                         multiple
-                        className="block w-full text-sm text-gray-600 border border-blue-200 rounded-md cursor-pointer bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        className="block w-full text-sm text-gray-700 border border-blue-300 rounded-md cursor-pointer bg-white hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     />
                 </div>
                 <div>
-                    <label className="block text-lg font-semibold text-blue-700 mb-3">Job Description:</label>
+                    <label className="block text-lg font-semibold text-blue-800 mb-3">Job Description:</label>
                     <textarea
                         value={jobDescription}
                         onChange={handleJobDescriptionChange}
                         placeholder="Enter the job description here"
                         rows="5"
-                        className="w-full p-4 border border-blue-200 rounded-md bg-blue-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 hover:bg-blue-100"
+                        className="w-full p-4 border border-blue-300 rounded-md bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-blue-50"
                     />
                 </div>
                 <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4">
                     <button 
                         type="submit" 
-                        className="w-full py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors"
+                        className="w-full py-3 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition-colors"
                     >
                         Submit
                     </button>
                     <button 
                         type="button" 
                         onClick={handleReset}
-                        className="w-full py-3 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 transition-colors"
+                        className="w-full py-3 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700 transition-colors"
                     >
                         Reset Uploads
                     </button>
