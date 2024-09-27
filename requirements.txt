@@ -1,0 +1,7 @@
+langchain
+langchain_chroma
+langchain_community
+langchain_google_genai
+flask_cors
+nltk
+pytesseract
