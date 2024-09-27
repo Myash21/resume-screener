@@ -29,8 +29,7 @@ const LLMQueryComponent = () => {
   };
 
   return (
-    
-    <div className=" max-w-lg  mt-48 mr-48 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg absolute top-10 right-5">
+    <div className=" max-w-lg  mt-12 mr-48 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg absolute top-10 right-5 overflow-y-auto max-h-screen">
       <h2 className="text-2xl font-bold text-center mb-6  text-blue-700">
         Ask LLM about Candidates
       </h2>
@@ -74,7 +73,6 @@ const LLMQueryComponent = () => {
         </div>
       )}
     </div>
-  
   );
 };
 
