@@ -5,6 +5,7 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.embeddings import OllamaEmbeddings
 from langchain.schema.document import Document
 import argparse
 from dotenv import load_dotenv
@@ -68,6 +69,10 @@ class RAGPipeline:
                 model="models/embedding-001"
             ),
         )
+        # db = Chroma(
+        #     persist_directory=self.database_path,
+        #     embedding_function=OllamaEmbeddings(model="llama3.2:3b"),
+        # )
 
         chunks_with_ids = self.calculate_chunk_ids(chunks)
 

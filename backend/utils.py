@@ -5,6 +5,7 @@ from langchain_chroma import Chroma
 from langchain.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.embeddings import OllamaEmbeddings
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -34,6 +35,10 @@ def query_rag(job_description: str, question: str) -> Tuple[str, List[str]] | st
                 model="models/embedding-001"
             ),
         )
+        # db = Chroma(
+        #     persist_directory="chroma",
+        #     embedding_function=OllamaEmbeddings(model="llama3.2:3b"),
+        # )
 
         results = db.similarity_search_with_score(
             job_description, k=len(db.get()["ids"])
@@ -104,7 +109,7 @@ This job requires an awareness of any potential compliance risks and a commitmen
 """
 
     temp_question = (
-        "Tell me the best candidates suitable for the provided job description."
+        "Give me only the names of people, their experience and skills and nothing else who are suitable for the job and put the information in a python dictionary"
     )
     print(query_rag(job_description=temp_jd, question=temp_question))
 
