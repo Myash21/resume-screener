@@ -96,7 +96,7 @@ def predict():
             return jsonify({"answer": "No message provided"})
 
         message = data["message"]
-        response, response_links = query_rag(query_text=message)
+        response, response_links = query_rag(job_description=message)
         return jsonify({"answer": response, "links": response_links})
 
     except Exception as e:
