@@ -1,9 +1,11 @@
 import os
 import logging
+import shutil
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 from utils import query_rag
+from rag_pipeline import RAGPipeline
 
 # Flask application setup
 app = Flask(__name__)
@@ -59,6 +61,13 @@ def upload_resumes():
     with open(os.path.join(jd_path, "job_description.txt"), "w") as jd_file:
         jd_file.write(job_description)
 
+    rag_pipeline = RAGPipeline(
+        document_type="pdf",
+        data_path="uploads\pdfs",
+        database_path="chroma",  # chroma_links
+    )
+    rag_pipeline.run_pipeline()
+
     return jsonify(
         {
             "message": "Resumes and job description received successfully.",
@@ -80,6 +89,9 @@ def reset_uploads():
                 file_path = os.path.join(folder, filename)
                 if os.path.isfile(file_path):
                     os.remove(file_path)
+
+        if os.path.exists("chroma"):
+            shutil.rmtree("chroma")
 
         return jsonify({"message": "Uploads reset successfully."}), 200
 
