@@ -7,11 +7,9 @@ from werkzeug.utils import secure_filename
 from utils import query_rag
 from rag_pipeline import RAGPipeline
 
-# Flask application setup
 app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
-# Enable CORS for cross-origin requests (from React or other frontends)
 CORS(
     app,
     resources={
@@ -22,13 +20,11 @@ CORS(
 UPLOAD_FOLDER = "./uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Create necessary folders for job description and resumes
 jd_path = os.path.join(UPLOAD_FOLDER, "jd")
 pdfs_path = os.path.join(UPLOAD_FOLDER, "pdfs")
 os.makedirs(jd_path, exist_ok=True)
 os.makedirs(pdfs_path, exist_ok=True)
 
-# Allowed file extensions for resumes
 ALLOWED_EXTENSIONS = {"pdf"}
 
 
@@ -57,14 +53,13 @@ def upload_resumes():
             file.save(os.path.join(pdfs_path, filename))
             saved_files.append(filename)
 
-    # Save job description to a text file
     with open(os.path.join(jd_path, "job_description.txt"), "w") as jd_file:
         jd_file.write(job_description)
 
     rag_pipeline = RAGPipeline(
         document_type="pdf",
         data_path=r"uploads\pdfs",
-        database_path="chroma",  # chroma_links
+        database_path="chroma",
     )
     rag_pipeline.run_pipeline()
 
@@ -83,7 +78,6 @@ def reset_uploads():
     Resets the uploaded files by deleting them from the server.
     """
     try:
-        # Delete all files in the job description and resumes folder
         for folder in [jd_path, pdfs_path]:
             for filename in os.listdir(folder):
                 file_path = os.path.join(folder, filename)
@@ -111,10 +105,8 @@ def predict():
             logging.error("Invalid input: Missing job_description or question field.")
             return jsonify({"error": "Job description and question are required."}), 400
 
-        # job_description = data["job_description"]
         question = data["question"]
 
-        # Query the RAG pipeline
         with open(r"uploads\jd\job_description.txt", "r") as jd_file:
             job_description = jd_file.read()
         print(job_description)
@@ -130,5 +122,4 @@ def predict():
 
 
 if __name__ == "__main__":
-    # Run Flask application in debug mode
     app.run(debug=True)
