@@ -28,7 +28,6 @@ def query_rag(job_description: str, question: str) -> Tuple[str, List[str]] | st
     """
 
     try:
-        # Initialize Chroma with embeddings to perform similarity search
         db = Chroma(
             persist_directory="chroma",
             embedding_function=GoogleGenerativeAIEmbeddings(
@@ -36,26 +35,21 @@ def query_rag(job_description: str, question: str) -> Tuple[str, List[str]] | st
             ),
         )
 
-        # Perform a similarity search for the provided job description
-        results = db.similarity_search_with_score(job_description, k=50)
+        results = db.similarity_search_with_score(
+            job_description, k=len(db.get()["ids"])
+        )
 
-        # Generate context text from the search results
         context_text = " ".join([doc.page_content for doc, _score in results])
 
-        # Generate the prompt
         prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
         prompt = prompt_template.format(
             job_description=job_description, context=context_text, question=question
         )
 
-        # Call the Generative AI model to generate the response
         model = ChatGoogleGenerativeAI(
             model="gemini-1.5-flash", api_key=os.getenv("GOOGLE_API_KEY")
         )
         response = model.invoke(prompt)
-        # print(job_description)
-        # print(context_text)
-        # Return the content of the response
         if hasattr(response, "content"):
             return response.content.strip()
         return str(response).strip()
