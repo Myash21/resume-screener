@@ -56,7 +56,7 @@ def query_rag(job_description: str, question: str) -> Tuple[str, List[str]] | st
 
 def main() -> None:
     temp_jd = """
-This is a remote position.
+Job Title: Python/Django Developer Internship Company: Geekrabit Private Limited Location: Wagholi, Pune Type: Unpaid Internship (6 months), In-office Reward: Stipend This is a remote position.
 
 About Acowale:
 
@@ -84,7 +84,7 @@ Skills Required:
     Familiarity with version control systems like GIT. 
 
 """
-    temp_question = "Tell me if Yash Mhaskar is suitable for the given job description"
+    temp_question = "Tell me Uday Bhole's volunteer experience "
     print(query_rag(job_description=temp_jd, question=temp_question))
 
 
