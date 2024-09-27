@@ -6,10 +6,9 @@ const ResumeUploader = () => {
     const [jobDescription, setJobDescription] = useState('');
     const [responseMessage, setResponseMessage] = useState('');
 
-    // Handle folder selection (get multiple files)
     const handleFolderChange = (e) => {
         const files = Array.from(e.target.files);
-        setSelectedFiles(files.filter(file => file.type === "application/pdf"));  // Only PDFs
+        setSelectedFiles(files.filter(file => file.type === "application/pdf"));
     };
 
     const handleJobDescriptionChange = (e) => {
@@ -24,7 +23,6 @@ const ResumeUploader = () => {
             return;
         }
 
-        // Create FormData for each file
         const formData = new FormData();
         selectedFiles.forEach((file) => {
             formData.append("resumes", file);
@@ -55,33 +53,49 @@ const ResumeUploader = () => {
     };
 
     return (
-        <div>
-            <h1>Upload Resumes and Job Description</h1>
-            <form onSubmit={handleSubmit}>
+        <div className="max-w-3xl mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg border border-blue-200">
+            <h1 className="text-4xl font-bold mb-6 text-center text-blue-600">Upload Resumes and Job Description</h1>
+            <form onSubmit={handleSubmit} className="space-y-8">
                 <div>
-                    <label>Select Folder (PDFs only):</label>
+                    <label className="block text-lg font-semibold text-blue-700 mb-3">Select Folder (PDFs only):</label>
                     <input 
                         type="file"
-                        webkitdirectory="true"  // Select entire folder
+                        webkitdirectory="true"
                         directory="true"
                         onChange={handleFolderChange}
                         multiple
+                        className="block w-full text-sm text-gray-600 border border-blue-200 rounded-md cursor-pointer bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-400"
                     />
                 </div>
                 <div>
-                    <label>Job Description:</label>
+                    <label className="block text-lg font-semibold text-blue-700 mb-3">Job Description:</label>
                     <textarea
                         value={jobDescription}
                         onChange={handleJobDescriptionChange}
                         placeholder="Enter the job description here"
-                        rows="4"
-                        cols="50"
+                        rows="5"
+                        className="w-full p-4 border border-blue-200 rounded-md bg-blue-50 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-400 hover:bg-blue-100"
                     />
                 </div>
-                <button type="submit">Submit</button>
-                <button type="button" onClick={handleReset}>Reset Uploads</button>
+                <div className="flex flex-col space-y-4 sm:space-y-0 sm:flex-row sm:space-x-4">
+                    <button 
+                        type="submit" 
+                        className="w-full py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors"
+                    >
+                        Submit
+                    </button>
+                    <button 
+                        type="button" 
+                        onClick={handleReset}
+                        className="w-full py-3 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 transition-colors"
+                    >
+                        Reset Uploads
+                    </button>
+                </div>
             </form>
-            {responseMessage && <p>{responseMessage}</p>}
+            {responseMessage && (
+                <p className="mt-6 text-center text-lg text-blue-700 font-medium">{responseMessage}</p>
+            )}
         </div>
     );
 };
