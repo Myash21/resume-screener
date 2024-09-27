@@ -17,7 +17,7 @@ const LLMQueryComponent = () => {
       });
 
       if (res.data.answer) {
-        setResponse(res.data.answer);
+        setResponse(formatResponse(res.data.answer));
         setError("");
       } else {
         setError("No response from the server.");
@@ -28,9 +28,21 @@ const LLMQueryComponent = () => {
     }
   };
 
+  const formatResponse = (text) => {
+    // Replace **text** with <strong>text</strong> for bold
+    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // Replace ***text*** with <em><strong>text</strong></em> for bold and italic
+    text = text.replace(/\*\*\*(.*?)\*\*\*/g, '<em><strong>$1</strong></em>');
+    // Replace *text* with <em>text</em> for italic
+    text = text.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    // Replace newlines with <br /> for line breaks
+    text = text.replace(/\n/g, '<br />');
+    return text;
+  };
+
   return (
-    <div className=" max-w-lg  mt-12 mr-48 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg absolute top-10 right-5 overflow-y-auto max-h-screen">
-      <h2 className="text-2xl font-bold text-center mb-6  text-blue-700">
+    <div className="max-w-lg mt-12 mr-48 p-6 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg shadow-lg absolute top-10 right-5">
+      <h2 className="text-2xl font-bold text-center mb-6 text-blue-700">
         Ask LLM about Candidates
       </h2>
       <form onSubmit={handleSubmit}>
@@ -61,9 +73,9 @@ const LLMQueryComponent = () => {
       </form>
 
       {response && (
-        <div className="mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+        <div className="mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded overflow-y-auto" style={{ maxHeight: "350px", paddingBottom: "10px" }}>
           <h4 className="font-semibold">Response:</h4>
-          <p>{response}</p>
+          <p dangerouslySetInnerHTML={{ __html: response }} />
         </div>
       )}
 

@@ -6,13 +6,10 @@ import './index.css';
 
 function App() {
   return (
-   
-        <div className="App relative" style={{ overflow: 'hidden' }}>
-      
+    <div className="App relative" style={{ overflow: 'hidden', backgroundColor: '#001f3f', minHeight: '100vh' }}>
       <ResumeUploader />
       <LLMQueryComponent />
     </div>
-
   );
 }
 
