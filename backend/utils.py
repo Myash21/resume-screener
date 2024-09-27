@@ -30,21 +30,12 @@ def query_rag(job_description: str) -> Tuple[str, List[str]] | str:
                 model="models/embedding-001"
             ),
         )
-        db_links = Chroma(
-            persist_directory="chroma_links",
-            embedding_function=GoogleGenerativeAIEmbeddings(
-                model="models/embedding-001"
-            ),
-        )
 
         results = db.similarity_search_with_score(job_description, k=5)
 
-
         context_text = "\n\n---\n\n".join([doc.page_content for doc, _score in results])
         prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
-        prompt = prompt_template.format(
-            context=context_text, question=question
-        )
+        prompt = prompt_template.format(context=context_text, question=question)
 
         model = ChatGoogleGenerativeAI(
             model="gemini-1.5-flash", api_key=os.getenv("GOOGLE_API_KEY")
