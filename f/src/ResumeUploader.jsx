@@ -53,7 +53,8 @@ const ResumeUploader = () => {
     };
 
     return (
-        <div className="max-w-lg mx-0 mt-10 p-8 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg border border-blue-300">
+
+        <div  className="max-w-lg mx-28 p-10 mt-20 p-8 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg border border-blue-300">
             <h1 className="text-4xl font-bold mb-6 text-center text-blue-700">Upload Resumes and Job Description</h1>
             <form onSubmit={handleSubmit} className="space-y-8">
                 <div>

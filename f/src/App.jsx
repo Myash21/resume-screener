@@ -1,15 +1,18 @@
+// App.jsx
 import React from "react";
 import ResumeUploader from "./ResumeUploader";
-import ChatApp from "./ChatApp";
 import LLMQueryComponent from "./LLMQueryComponent";
 import './index.css';
 
 function App() {
   return (
-    <div className="App">
+   
+        <div className="App relative" style={{ overflow: 'hidden' }}>
+      
       <ResumeUploader />
       <LLMQueryComponent />
     </div>
+
   );
 }
 
