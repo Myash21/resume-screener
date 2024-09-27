@@ -63,7 +63,7 @@ def upload_resumes():
 
     rag_pipeline = RAGPipeline(
         document_type="pdf",
-        data_path="uploads\pdfs",
+        data_path=r"uploads\pdfs",
         database_path="chroma",  # chroma_links
     )
     rag_pipeline.run_pipeline()
@@ -115,7 +115,7 @@ def predict():
         question = data["question"]
 
         # Query the RAG pipeline
-        with open("uploads\jd\job_description.txt", "r") as jd_file:
+        with open(r"uploads\jd\job_description.txt", "r") as jd_file:
             job_description = jd_file.read()
         print(job_description)
         response = query_rag(job_description=job_description, question=question)

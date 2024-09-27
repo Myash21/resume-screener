@@ -1,2 +1,27 @@
-Airbus Innovation Centre - India & South Asia is responsible for industrializing disruptive technologies by tapping into the strong engineering competencies centre while also leveraging and co-creating with the vibrant external ecosystems such as big Tech Enterprises, mature startups/MSMEs, national labs & universities and strategic partners (customers, suppliers etc.)
+Position Overview: We are looking for a skilled and experienced Generative AI Developer to join our team. As a Generative AI Developer, you will be responsible for developing innovative solutions leveraging generative techniques and advanced AI algorithms to create synthetic data, generate content, and produce realistic outputs. The ideal candidate will have a strong background in programming, predictive analytics, and deep expertise in generative AI technologies.
 
+
+Key Responsibilities:
+
+    Utilize your strong proficiency in programming languages like Python and SQL to develop and implement generative AI solutions.
+    Apply your expertise in predictive and prescriptive analytics, including machine learning algorithms (Supervised and Unsupervised), deep learning algorithms, and Artificial Neural Networks (ANNs) such as regression, classification, ensemble modeling, RNN, LSTM, and GRU.
+    Leverage your experience in Natural Language Processing (NLP), text analytics, Document AI, OCR, sentiment analysis, entity recognition, and topic modeling to enhance generative AI capabilities.
+    Demonstrate proficiency in LangChain and Open LLM frameworks 
+    Utilize your proficiency in generative techniques such as prompt engineering, Vector DB, and various LLMs including OpenAI, LlamaIndex, Azure OpenAI, and Open-source LLMs to develop cutting-edge solutions.
+    Apply hands-on experience in GenAI technology areas, including RAG architecture, fine-tuning techniques, inferencing frameworks, and other advanced generative AI concepts.
+    Collaborate with cross-functional teams to integrate generative AI solutions with big data technologies/frameworks and Microsoft Azure.
+    Stay updated on the latest advancements in generative AI and big data technologies, and proactively recommend innovative solutions to enhance our capabilities.
+
+
+Qualifications:
+
+    Bachelor’s or Master’s degree in Computer Science, Engineering, Mathematics, Statistics, or related field.
+    3+ years of experience in predictive/prescriptive analytics, with a focus on generative AI development.
+    Strong proficiency in programming languages such as Python and SQL.
+    Experience with machine learning algorithms, deep learning algorithms, and Artificial Neural Networks.
+    2+ years of experience in NLP, text analytics, Document AI, OCR, sentiment analysis, entity recognition, and topic modeling.
+    Proficiency in LangChain and Open LLM frameworks.
+    Hands-on experience with generative techniques and LLMs such as OpenAI, LlamaIndex, and Azure OpenAI.
+    Familiarity with big data technologies/frameworks and Microsoft Azure.
+    Excellent problem-solving skills and the ability to translate business requirements into technical solutions.
+    Strong communication and collaboration skills, with the ability to work effectively in a team environment.
