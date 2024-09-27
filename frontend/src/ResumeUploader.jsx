@@ -44,6 +44,16 @@ const ResumeUploader = () => {
         }
     };
 
+    const handleReset = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:5000/api/reset');
+            setResponseMessage(response.data.message);
+        } catch (error) {
+            console.error("Error resetting uploads", error);
+            setResponseMessage("Failed to reset uploads.");
+        }
+    };
+
     return (
         <div>
             <h1>Upload Resumes and Job Description</h1>
@@ -69,6 +79,7 @@ const ResumeUploader = () => {
                     />
                 </div>
                 <button type="submit">Submit</button>
+                <button type="button" onClick={handleReset}>Reset Uploads</button>
             </form>
             {responseMessage && <p>{responseMessage}</p>}
         </div>
