@@ -56,36 +56,35 @@ def query_rag(job_description: str, question: str) -> Tuple[str, List[str]] | st
 
 def main() -> None:
     temp_jd = """
-Job Title: Python/Django Developer Internship Company: Geekrabit Private Limited Location: Wagholi, Pune Type: Unpaid Internship (6 months), In-office Reward: Stipend based on performance Geekrabit Private Limited, located in Wagholi, Pune, is offering an exciting opportunity for a Python/Django Developer Intern to join our team for a 6-month unpaid internship. This internship will provide valuable hands-on experience in a professional environment, allowing interns to enhance their skills, build their portfolios, and make meaningful contributions to real-world projects. A stipend will be awarded based on performance during the internship period.
+This is a remote position.
 
-    Collaborate with our development team to develop Python-based applications using the Django
-    Write clean, efficient, and maintainable code following best practices and object-oriented programming
-    Apply segmentation techniques and algorithms to support data analysis and processing within Django
-    Participate in code reviews and contribute to improving code quality and consistency.
-    Work closely with team members to understand project requirements and deliver solutions within
-    Stay updated on industry trends and emerging technologies related to Python development and Django Responsibilities: framework. (OOP) principles. applications. deadlines. framework. Requirements:
-    Pursuing or recently completed a degree in Computer Science, Engineering, or a related field.
-    Strong proficiency in Python programming language.
-    Understanding of object-oriented programming (OOP) concepts and design patterns.
-    Familiarity with the Django framework for web development.
-    Knowledge of segmentation techniques and algorithms is advantageous.
-    Ability to write clean, efficient, and scalable code.
-    Excellent problem-solving skills and attention to detail.
-    Effective communication and collaboration skills.
-    Ability to work independently and as part of a team in a fast-paced environment. Benefits:
-    Hands-on experience with real-world projects in a professional setting.
-    Mentorship and guidance from experienced professionals.
-    Opportunity to enhance skills and build a professional portfolio.
-    Networking opportunities within the company.
-    Possibility of future employment opportunities based on performance.
-    Internship certificate upon successful completion.
-    Letter of recommendation for outstanding interns. How to Apply: Interested candidates are invited to submit their updated CV to: ashutosh.geekrabit@gmail.com kapil.geekrabit@gmail.com Geekrabit Private Limited is committed to providing equal opportunities and fostering diversity in the workplace. We encourage individuals from all backgrounds to apply. Please note that this is an unpaid internship position with a stipend awarded based on performance.
+About Acowale:
 
+Welcome to Acowale—a startup backed by giants like Microsoft, Zoho, and Freshworks. We’re shaping India’s tech future, with a 4.8 Glassdoor rating and a 100% happy team. Join us, and be part of something extraordinary.
 
-Desired Skills and Experience
-PYTHON, Django, SOLID, SEGEMENTATION, OOPS, Object-Oriented Programming (OOP)
+About the Role:
+
+We’re looking for a Frontend Developer Intern to build sleek, responsive web applications. You'll work directly with our product team on developing our upcoming apps, Acodash and Acozap. This role offers the opportunity to learn from industry experts, gain hands-on experience, and potentially secure a full-time position. You'll be directly working with our Founders, CTO and COE.
+
+Requirements
+
+What You’ll Do:
+
+    Develop responsive web applications. 
+    Write clean, maintainable code. 
+    Collaborate with the product team on Acodash and Acozap. 
+    Work full-time, starting with a training period. 
+    Contribute to innovative frontend solutions. 
+
+Skills Required:
+
+    Proficiency in React.js, HTML, CSS, and Python. 
+    Experience with frontend frameworks, including React.js and Tailwind CSS. 
+    Understanding of responsive design principles. 
+    Familiarity with version control systems like GIT. 
+
 """
-    temp_question = "Give me the summary of this job description"
+    temp_question = "Tell me if Yash Mhaskar is suitable for the given job description"
     print(query_rag(job_description=temp_jd, question=temp_question))
 
 
