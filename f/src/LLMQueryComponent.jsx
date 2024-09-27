@@ -29,14 +29,14 @@ const LLMQueryComponent = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Ask LLM about Candidates</h2>
+    <div className="max-w-lg mx-auto mt-10 p-6 bg-white rounded-lg shadow-lg">
+      <h2 className="text-2xl font-bold text-center mb-6">Ask LLM about Candidates</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="jobDescription">Job Description:</label>
+        <div className="mb-4">
+          <label htmlFor="jobDescription" className="block text-sm font-medium text-gray-700 mb-2">Job Description:</label>
           <textarea
             id="jobDescription"
-            className="form-control"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             value={jobDescription}
             onChange={(e) => setJobDescription(e.target.value)}
             placeholder="Enter job description"
@@ -44,12 +44,12 @@ const LLMQueryComponent = () => {
           />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="question">Question:</label>
+        <div className="mb-4">
+          <label htmlFor="question" className="block text-sm font-medium text-gray-700 mb-2">Question:</label>
           <input
             id="question"
             type="text"
-            className="form-control"
+            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
             placeholder="Enter your question"
@@ -57,21 +57,24 @@ const LLMQueryComponent = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary mt-3">
+        <button
+          type="submit"
+          className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors"
+        >
           Submit
         </button>
       </form>
 
       {response && (
-        <div className="response mt-4">
-          <h4>Response:</h4>
+        <div className="mt-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded">
+          <h4 className="font-semibold">Response:</h4>
           <p>{response}</p>
         </div>
       )}
 
       {error && (
-        <div className="error mt-4">
-          <p style={{ color: "red" }}>{error}</p>
+        <div className="mt-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded">
+          <p>{error}</p>
         </div>
       )}
     </div>
