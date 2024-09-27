@@ -34,7 +34,7 @@ class RAGPipeline:
     def chunk_documents(self, documents: List[Document]) -> List[Document]:
         splitter = RecursiveCharacterTextSplitter(
             chunk_size=800,
-            chunk_overlap=80,
+            chunk_overlap=10,
             length_function=len,
             is_separator_regex=False,
         )

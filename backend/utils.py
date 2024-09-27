@@ -13,17 +13,21 @@ load_dotenv()
 
 def query_rag(job_description: str, question: str) -> Tuple[str, List[str]] | str:
     PROMPT_TEMPLATE = """
-    You are an HR assistant helping to analyze job descriptions in various PDF documents. Extract key information such as job title, required skills, qualifications, years of experience, responsibilities, and location. If the job description matches the following criteria, please summarize the details:
+    You are an HR assistant helping to analyze job descriptions and candidate resumes in PDF documents. First, rank the candidates based on their relevance to the provided job description by evaluating their skills, qualifications, years of experience, and alignment with job responsibilities.
 
-    Job Title: {job_description}
-    Candidate Resumes: {context}
+    Job Description:
+    {job_description}
     
-    Answer the following question asked by your HR in a description and precise way.
+    Candidate Resumes:
+    {context}
+
+    After ranking the candidates, answer any specific questions HR might have about the candidates in a clear and precise manner.
 
     Question:
 
     {question}
     """
+
     try:
         db = Chroma(
             persist_directory="chroma",
@@ -56,35 +60,50 @@ def query_rag(job_description: str, question: str) -> Tuple[str, List[str]] | st
 
 def main() -> None:
     temp_jd = """
-Job Title: Python/Django Developer Internship Company: Geekrabit Private Limited Location: Wagholi, Pune Type: Unpaid Internship (6 months), In-office Reward: Stipend This is a remote position.
+Job Description
 
-About Acowale:
+Airbus Innovation Centre - India & South Asia is responsible for industrializing disruptive technologies by tapping into the strong engineering competencies centre while also leveraging and co-creating with the vibrant external ecosystems such as big Tech Enterprises, mature startups/MSMEs, national labs & universities and strategic partners (customers, suppliers etc.)
 
-Welcome to Acowale—a startup backed by giants like Microsoft, Zoho, and Freshworks. We’re shaping India’s tech future, with a 4.8 Glassdoor rating and a 100% happy team. Join us, and be part of something extraordinary.
+The technology areas that the Innovation Centre focus on are - Artificial Intelligence, Industrial Automation, Unmanned Air Systems, Connectivity, Space Tech, Autonomy, Decarbonization Technologies etc. among others.
 
-About the Role:
+Airbus Innovation Centre in India is 1 among 3 Innovation Centres globally for Airbus with a strong focus on A.I. and Digital Engineering. We build products from the ground up with the help of stakeholders from within Engineering and Digital competence centres (in addition to the external stakeholders mentioned above) to deliver operational excellence and contribute to the Innovation & Technology roadmap of the organization.
 
-We’re looking for a Frontend Developer Intern to build sleek, responsive web applications. You'll work directly with our product team on developing our upcoming apps, Acodash and Acozap. This role offers the opportunity to learn from industry experts, gain hands-on experience, and potentially secure a full-time position. You'll be directly working with our Founders, CTO and COE.
+We are seeking a highly skilled and motivated Front-End Development Intern to join our team. The ideal candidate will have a strong background in TypeScript, React, and modern front-end development practices. This is a fantastic opportunity to gain hands-on experience and contribute to cutting-edge projects within a dynamic environment.
 
-Requirements
+Job Description
 
-What You’ll Do:
+Front-End Development Intern (TypeScript & React)
 
-    Develop responsive web applications. 
-    Write clean, maintainable code. 
-    Collaborate with the product team on Acodash and Acozap. 
-    Work full-time, starting with a training period. 
-    Contribute to innovative frontend solutions. 
+Key Responsibilities
 
-Skills Required:
+    Develop responsive, high-quality front-end code using TypeScript and React.
+    Implement and manage state using React's built-in hooks and advanced hooks 
+    Utilize TypeScript to enforce type safety, ensuring robust and maintainable code.
+    Work with React Router for handling navigation and managing application routes.
+    Optimize component performance by leveraging React’s optimization techniques.
+    Collaborate with product managers, data scientists, and other stakeholders to understand user needs and business requirements.
+    Assist in the creation and maintenance of reusable components and component libraries using best practices in React.
+    Ensure all code adheres to industry best practices, is accessible, and meets company standards.
+    Debug and resolve front-end issues, leveraging browser dev tools and React DevTools.
+    Integrate and consume RESTful APIs, managing data flow with state management solutions like Redux or Context API.
 
-    Proficiency in React.js, HTML, CSS, and Python. 
-    Experience with frontend frameworks, including React.js and Tailwind CSS. 
-    Understanding of responsive design principles. 
-    Familiarity with version control systems like GIT. 
+Qualifications
+
+    Currently pursuing a degree in Computer Science, Software Engineering, or a related field, or a recent graduate.
+    Proficiency with TypeScript and React is required.
+    Basic understanding of HTML, CSS, and JavaScript.
+    Familiarity with front-end build tools and package managers such as Webpack, Babel, npm, or Yarn.
+    Experience with RESTful API integration and asynchronous programming.
+    Strong problem-solving skills and attention to detail.
+    Willingness to learn and adapt to new tools, frameworks, and technologies.
+    Good communication skills and the ability to work collaboratively in a team environment.
+    Experience with version control systems like Git is a plus.
+
+This job requires an awareness of any potential compliance risks and a commitment to act with integrity, as the foundation for the Company’s success, reputation and sustainable growth.
+
 
 """
-    temp_question = "Tell me Uday Bhole's volunteer experience "
+    temp_question = "Give me names of candidates suitable for the job description."
     print(query_rag(job_description=temp_jd, question=temp_question))
 
 
