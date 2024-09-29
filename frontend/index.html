@@ -1,13 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resume Uploader</title>
-    <link rel="stylesheet" href="/src/index.css" />
+    <title>AI Resume Screener</title>
   </head>
-  <body class="bg-blue-50">
-    <div id="root"></div>
+  <body>
     <script type="module" src="/src/main.jsx"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"
+    ></script>
+    <spline-viewer
+      loading-anim-type="spinner-small-dark"
+      url="https://prod.spline.design/VvkLK3h533IWV3Qz/scene.splinecode"
+    ></spline-viewer>
+    <div id="root" style="background-color: #001f3f"></div>
   </body>
 </html>
