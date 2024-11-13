@@ -1,4 +1,3 @@
-// ResumeUploader.jsx
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -65,19 +64,7 @@ const ResumeUploader = () => {
         Upload Resumes and Job Description
       </h1>
       <form onSubmit={handleSubmit} className="space-y-8">
-        <div>
-          <label className="block text-lg font-semibold text-blue-800 mb-3">
-            Select Folder (PDFs only):
-          </label>
-          <input
-            type="file"
-            webkitdirectory="true"
-            directory="true"
-            onChange={handleFolderChange}
-            multiple
-            className="block w-full text-sm text-gray-700 border border-blue-300 rounded-md cursor-pointer bg-white hover:bg-blue-50"
-          />
-        </div>
+        {/* Simplified Form */}
         <div>
           <label className="block text-lg font-semibold text-blue-800 mb-3">
             Job Description:
@@ -85,9 +72,21 @@ const ResumeUploader = () => {
           <textarea
             value={jobDescription}
             onChange={handleJobDescriptionChange}
-            placeholder="Enter the job description here"
+            placeholder="Enter job description"
             rows="5"
             className="w-full p-4 border border-blue-300 rounded-md bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+        <div>
+          <label className="block text-lg font-semibold text-blue-800 mb-3">
+            Select Resumes (PDF only):
+          </label>
+          <input
+            type="file"
+            multiple
+            accept=".pdf"
+            onChange={handleFolderChange}
+            className="block w-full text-sm text-gray-700 border border-blue-300 rounded-md cursor-pointer bg-white hover:bg-blue-50"
           />
         </div>
         <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4">
