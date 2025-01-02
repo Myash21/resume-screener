@@ -29,6 +29,7 @@ pdfs_path = os.path.join(UPLOAD_FOLDER, "pdfs")
 os.makedirs(jd_path, exist_ok=True)
 os.makedirs(pdfs_path, exist_ok=True)
 
+# Allowed file extensions
 ALLOWED_EXTENSIONS = {"pdf"}
 
 
