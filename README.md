@@ -1,4 +1,4 @@
-![2e6a1ad3-1f36-47dd-be27-0b52e2f251ce](https://github.com/user-attachments/assets/f466fc37-c4d4-4311-90c6-57c849d88833)
+![2e6a1ad3-1f36-47dd-be27-0b52e2f251ce](resume_screener.png)
 
 # AI-Based Resume Screener
 
