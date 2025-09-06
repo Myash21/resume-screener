@@ -1,6 +1,6 @@
-![2e6a1ad3-1f36-47dd-be27-0b52e2f251ce](resume_screener.png)
 
 # AI-Based Resume Screener
+![2e6a1ad3-1f36-47dd-be27-0b52e2f251ce](resume_screener.png)
 
 This repository hosts an AI-based resume screening system designed to scale and handle large volumes of resumes. Built using a Retrieval-Augmented Generation (RAG) pipeline, this system enables efficient resume ingestion and querying, utilizing cutting-edge LLMs and a simple-to-use Flask-based API interface.
 
